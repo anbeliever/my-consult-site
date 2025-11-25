@@ -1,43 +1,10 @@
 // app/page.tsx
+import Hero from "./components/Hero";
 
 export default function HomePage() {
   return (
     <main className="pb-16">
-      {/* Hero */}
-      <section className="border-b border-slate-200 bg-white py-12 md:py-16">
-        <div className="mx-auto max-w-5xl px-4 md:px-6">
-          <p className="mb-3 inline-flex items-center rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-medium text-sky-800">
-            民泊・小規模ホテル専門コンサルティング
-          </p>
-          <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
-            「埋まらない」「回らない」民泊・ホテル運営を、
-            <br className="hidden md:block" />
-            現場と数字の両面から立て直します。
-          </h1>
-          <p className="mb-6 text-base leading-relaxed text-slate-700 md:text-lg">
-            OTA管理・レベニューマネジメント・オペレーション改善まで。
-            宿泊業界で現役の運営担当として培った知見をもとに、
-            小規模オーナー様の「売上アップ」と「現場の負担軽減」を二本柱でご支援します。
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-sky-700"
-            >
-              無料オンライン相談を予約する
-            </a>
-            <a
-              href="#services"
-              className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            >
-              サービス内容を見る
-            </a>
-          </div>
-          <p className="mt-4 text-xs text-slate-500">
-            ※Zoom を使った30分程度のオンライン相談です。売り込みは行いません。
-          </p>
-        </div>
-      </section>
+      <Hero />
 
       {/* 悩み */}
       <section className="py-12 md:py-16">
@@ -67,41 +34,39 @@ export default function HomePage() {
         className="border-y border-slate-200 bg-slate-50 py-12 md:py-16"
       >
         <div className="mx-auto max-w-5xl px-4 md:px-6">
-          <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl">
-            サービス内容
+          <h2 className="mb-4 text-center text-2xl font-bold tracking-tight md:text-3xl">
+            主なサービス内容
           </h2>
-          <p className="mb-6 text-slate-700">
-            現場のオペレーションと数字の両方を見ながら、次のようなテーマを中心にご支援します。
+          <p className="mb-8 text-center text-slate-700">
+            手間のかかる運営業務をまるごと代行し、オーナー様の負担をゼロにします。
           </p>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-white p-4">
-              <h3 className="mb-2 text-lg font-semibold">レベニューマネジメント設計</h3>
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 text-center">
+              <h3 className="mb-2 text-lg font-semibold">日常運営代行</h3>
               <p className="text-sm text-slate-700">
-                需要や在庫に応じた料金ルールを一緒に設計します。
-                Beds24 などのサイトコントローラーを活用し、「手作業に頼らない」価格運用を目指します。
+                ゲスト対応、予約管理、清掃連携など、日々のあらゆる業務を代行します。
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-4">
-              <h3 className="mb-2 text-lg font-semibold">OTA・在庫管理の整理</h3>
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 text-center">
+              <h3 className="mb-2 text-lg font-semibold">レベニューマネジメント</h3>
               <p className="text-sm text-slate-700">
-                楽天トラベル・じゃらん・Booking.com 等のプランや在庫を整理し、
-                「シンプルでミスの少ない」構成に組み直します。
+                最適な価格設定と販売戦略で、施設の収益を最大化します。
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-4">
-              <h3 className="mb-2 text-lg font-semibold">オペレーション改善</h3>
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 text-center">
+              <h3 className="mb-2 text-lg font-semibold">口コミ改善サポート</h3>
               <p className="text-sm text-slate-700">
-                清掃手配・チェックイン方法・問い合わせ対応など、
-                日々の業務フローを見える化し、ムダな動きや属人化を減らします。
+                ゲスト満足度を高め、高評価レビューを獲得するための施策を実行します。
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-4">
-              <h3 className="mb-2 text-lg font-semibold">新規開業・立ち上げ支援</h3>
-              <p className="text-sm text-slate-700">
-                物件選定から開業準備、初期の料金設計・集客設計まで、
-                「開業後3か月で迷子にならない」状態を一緒に作っていきます。
-              </p>
-            </div>
+          </div>
+          <div className="mt-8 text-center">
+            <a
+              href="/services"
+              className="font-semibold text-sky-600 hover:text-sky-700"
+            >
+              サービスの詳細を見る →
+            </a>
           </div>
         </div>
       </section>
@@ -226,45 +191,43 @@ export default function HomePage() {
       {/* 料金プラン */}
       <section className="border-y border-slate-200 bg-slate-50 py-12 md:py-16">
         <div className="mx-auto max-w-5xl px-4 md:px-6">
-          <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl">
-            料金の目安
+          <h2 className="mb-4 text-center text-2xl font-bold tracking-tight md:text-3xl">
+            料金プラン
           </h2>
-          <p className="mb-6 text-slate-700">
-            料金は物件の規模や支援内容によって変わりますが、小規模オーナー様でも始めやすいように設計しています。
+          <p className="mb-8 text-center text-slate-700">
+            施設の規模やご希望に合わせて、3つのプランから柔軟にお選びいただけます。
           </p>
-          <div className="grid gap-4 md:grid-cols-3 text-sm text-slate-700">
-            <div className="rounded-2xl border border-slate-200 bg-white p-4">
-              <p className="mb-1 text-xs font-semibold text-sky-700">単発相談</p>
-              <p className="mb-2 text-lg font-bold">60分 〜</p>
-              <p className="mb-2">・Zoomでの現状相談・方向性整理</p>
-              <p className="mb-0 text-xs text-slate-500">※まずはここからでも大丈夫です。</p>
-            </div>
-            <div className="rounded-2xl border border-sky-500 bg-sky-50 p-4">
-              <p className="mb-1 text-xs font-semibold text-sky-700">月額伴走プラン</p>
-              <p className="mb-2 text-lg font-bold">月額固定 ＋ 成果報酬</p>
-              <p className="mb-2">
-                ・レベニュー/OTA/オペの継続的な改善支援
-                <br />
-                ・チャット相談・月次ミーティング など
-              </p>
-              <p className="mb-0 text-xs text-slate-600">
-                詳細は物件・状況をヒアリングのうえ個別にご提案します。
+          <div className="grid gap-6 md:grid-cols-3 text-center">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="mb-2 text-lg font-semibold">ライト運営代行</h3>
+              <p className="text-xl font-bold">手数料12%〜</p>
+              <p className="mt-2 text-sm text-slate-700">
+                基本的な運営をまるっとお任せ。
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-4">
-              <p className="mb-1 text-xs font-semibold text-sky-700">新規開業サポート</p>
-              <p className="mb-2 text-lg font-bold">個別お見積り</p>
-              <p className="mb-2">
-                ・物件検討〜開業準備〜運営スタートまでをトータルでサポートします。
+            <div className="rounded-2xl border-2 border-sky-500 bg-white p-6">
+              <h3 className="mb-2 text-lg font-semibold">スタンダード</h3>
+              <p className="text-xl font-bold">手数料12%〜 + 成果報酬</p>
+              <p className="mt-2 text-sm text-slate-700">
+                収益改善までコミットする一番人気のプラン。
               </p>
-              <p className="mb-0 text-xs text-slate-500">
-                「どこまでお願いしたいか」を含めて、初回相談時にざっくりご希望をお聞きします。
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 className="mb-2 text-lg font-semibold">フルサポート</h3>
+              <p className="text-xl font-bold">成果報酬型</p>
+              <p className="mt-2 text-sm text-slate-700">
+                初期費用ゼロで運営をすべて丸投げ。
               </p>
             </div>
           </div>
-          <p className="mt-4 text-xs text-slate-500">
-            ※料金は今後変更する可能性があります。最新の内容は初回相談時にご案内します。
-          </p>
+          <div className="mt-8 text-center">
+            <a
+              href="/pricing"
+              className="font-semibold text-sky-600 hover:text-sky-700"
+            >
+              料金プランの詳細を見る →
+            </a>
+          </div>
         </div>
       </section>
 

@@ -1,94 +1,217 @@
 // app/pricing/page.tsx
 
+const plans = [
+  {
+    name: "ライト運営代行",
+    price: "手数料12%〜",
+    description: "基本的な運営業務を代行。手間をかけずに安定稼働させたい方向け。",
+    features: [
+      "メッセージ対応",
+      "チェックイン案内",
+      "清掃手配・管理",
+      "収益レポート",
+    ],
+    popular: false,
+  },
+  {
+    name: "スタンダード",
+    price: "手数料12% + 成果報酬",
+    description: "売上・口コミを最大化するための、レベニュー管理まで含んだプラン。",
+    features: [
+      "ライトプランの全内容",
+      "レベニューマネジメント",
+      "口コミ改善施策",
+      "運営改善のご提案",
+    ],
+    popular: true,
+  },
+  {
+    name: "フルサポート",
+    price: "成果報酬型",
+    description: "初期費用0円。運営に関わる業務をすべて丸投げしたい方向け。",
+    features: [
+      "スタンダードプランの全内容",
+      "各種OTAアカウント管理",
+      "アメニティ等の物品管理・発注",
+      "緊急時・トラブルの現地対応",
+    ],
+    popular: false,
+  },
+];
+
+const comparisonFeatures = [
+  { name: "メッセージ対応", tiers: [true, true, true] },
+  { name: "清掃手配・管理", tiers: [true, true, true] },
+  { name: "収益レポート", tiers: [true, true, true] },
+  { name: "レベニューマネジメント", tiers: [false, true, true] },
+  { name: "口コミ改善施策", tiers: [false, true, true] },
+  { name: "運営改善のご提案", tiers: [false, true, true] },
+  { name: "OTAアカウント管理", tiers: [false, false, true] },
+  { name: "物品管理・発注", tiers: [false, false, true] },
+  { name: "緊急時の現地対応", tiers: [false, false, true] },
+];
+
+function CheckIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="h-6 w-6 text-sky-500"
+    >
+      <path
+        fillRule="evenodd"
+        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.06-1.06L10.5 12.94l-1.72-1.72a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.06 0l4.5-4.5z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+function MinusIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="h-6 w-6 text-slate-400"
+    >
+      <path
+        fillRule="evenodd"
+        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06H7.72a.75.75 0 000 1.06h8.56z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
 export default function PricingPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-16 text-slate-800">
-      {/* タイトル */}
-      <h1 className="text-3xl md:text-4xl font-bold mb-6">
-        料金・プラン
-      </h1>
-
-      <p className="text-slate-600 leading-relaxed mb-10">
-        物件の規模や現在の状況によって、最適な支援内容と料金は変わります。
-        ここでは「どのくらいのイメージで相談できるのか」をつかんでいただくための目安を載せています。
-        正式なお見積もりは、初回の無料オンライン相談のあとに個別にご案内します。
-      </p>
-
-      {/* プラン一覧 */}
-      <section className="grid gap-6 md:grid-cols-3 mb-16 text-sm text-slate-700">
-        {/* 単発相談 */}
-        <div className="rounded-2xl border border-slate-200 bg-white p-5 flex flex-col">
-          <p className="text-xs font-semibold text-sky-700 mb-1">スポット相談</p>
-          <p className="text-2xl font-bold mb-2">単発プラン</p>
-          <p className="mb-4 text-xs text-slate-500">まずは一度話を聞きたい方向け</p>
-          <ul className="list-disc pl-5 space-y-1 mb-4 flex-1">
-            <li>Zoomによる60分のオンライン相談</li>
-            <li>現状整理と「今すぐできる一歩」のご提案</li>
-            <li>簡単なアクションプランの共有</li>
-          </ul>
-          <p className="text-xs text-slate-500">
-            ※料金は物件規模・相談内容により変動します。
+    <div className="bg-white">
+      <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            料金プラン
+          </h1>
+          <p className="mt-4 text-lg leading-8 text-slate-600">
+            施設の規模やオーナー様のご希望に合わせて、3つのプランからお選びいただけます。
           </p>
         </div>
 
-        {/* 月額伴走 */}
-        <div className="rounded-2xl border border-sky-500 bg-sky-50 p-5 flex flex-col">
-          <p className="text-xs font-semibold text-sky-700 mb-1">おすすめ</p>
-          <p className="text-2xl font-bold mb-2">月額伴走プラン</p>
-          <p className="mb-4 text-xs text-slate-500">レベニュー・OTA・オペレーションを継続的に改善</p>
-          <ul className="list-disc pl-5 space-y-1 mb-4 flex-1">
-            <li>月1回のオンラインミーティング</li>
-            <li>チャット等での随時相談</li>
-            <li>Beds24 等の設定見直し・運用アドバイス</li>
-            <li>料金・稼働の簡易レポートと改善提案</li>
-          </ul>
-          <p className="text-xs text-slate-500">
-            月額固定＋成果報酬（売上アップ分の◯％ など）を組み合わせてご提案します。
-          </p>
+        {/* 3つのプランカード */}
+        <div className="isolate mx-auto mt-16 grid max-w-none grid-cols-1 gap-8 md:grid-cols-3">
+          {plans.map((plan) => (
+            <div
+              key={plan.name}
+              className={`flex flex-col justify-between rounded-2xl p-8 shadow-sm ring-1 ${
+                plan.popular
+                  ? "ring-2 ring-sky-600"
+                  : "ring-slate-200"
+              }`}
+            >
+              <div>
+                <h3 className="text-lg font-semibold leading-8 text-slate-900">
+                  {plan.name}
+                </h3>
+                <p className="mt-4 text-sm leading-6 text-slate-600">
+                  {plan.description}
+                </p>
+                <p className="mt-6 flex items-baseline gap-x-1">
+                  <span className="text-2xl font-bold tracking-tight text-slate-900">
+                    {plan.price}
+                  </span>
+                </p>
+                <ul
+                  role="list"
+                  className="mt-8 space-y-3 text-sm leading-6 text-slate-600"
+                >
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex gap-x-3">
+                      <svg
+                        className="h-6 w-5 flex-none text-sky-600"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* 新規開業 */}
-        <div className="rounded-2xl border border-slate-200 bg-white p-5 flex flex-col">
-          <p className="text-xs font-semibold text-sky-700 mb-1">新規案件向け</p>
-          <p className="text-2xl font-bold mb-2">開業サポート</p>
-          <p className="mb-4 text-xs text-slate-500">これから民泊・小規模ホテルを始めたい方向け</p>
-          <ul className="list-disc pl-5 space-y-1 mb-4 flex-1">
-            <li>物件・エリアの方向性相談</li>
-            <li>初期の料金・プラン設計</li>
-            <li>開業準備〜運営スタートまでの伴走</li>
-          </ul>
-          <p className="text-xs text-slate-500">
-            ボリュームに応じて個別にお見積もりいたします。
-          </p>
+        {/* プラン比較表 */}
+        <div className="mt-20">
+          <h2 className="text-center text-2xl font-bold tracking-tight text-slate-900">
+            プラン比較表
+          </h2>
+          <div className="mt-8 flow-root">
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-full divide-y divide-slate-200 text-left">
+                <thead className="bg-slate-50">
+                  <tr>
+                    <th
+                      scope="col"
+                      className="py-3.5 pl-4 pr-3 text-sm font-semibold text-slate-900 sm:pl-6"
+                    >
+                      機能
+                    </th>
+                    {plans.map((plan) => (
+                      <th
+                        key={plan.name}
+                        scope="col"
+                        className="px-3 py-3.5 text-center text-sm font-semibold text-slate-900"
+                      >
+                        {plan.name}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-200">
+                  {comparisonFeatures.map((feature) => (
+                    <tr key={feature.name}>
+                      <td className="py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-6">
+                        {feature.name}
+                      </td>
+                      {feature.tiers.map((included, i) => (
+                        <td key={i} className="px-3 py-4 text-center">
+                          {included ? <CheckIcon /> : <MinusIcon />}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-      </section>
 
-      {/* 注意書き */}
-      <section className="mb-16 text-sm text-slate-600 space-y-2">
-        <h2 className="text-lg font-semibold mb-2">料金についての考え方</h2>
-        <p>
-          ・小規模オーナー様でも無理なく始められることを重視して、固定費を抑えた設計にしています。
-        </p>
-        <p>
-          ・「まずはスポット相談だけ」「最初の数ヶ月だけ伴走してほしい」といったご相談も歓迎です。
-        </p>
-        <p>
-          ・成果報酬型については、目標売上や改善幅を踏まえて個別に設定します。
-        </p>
-      </section>
-
-      {/* CTA */}
-      <section className="mt-12 text-center">
-        <p className="mb-4 text-slate-700">
-          具体的な料金は、物件の状況やご希望のサポート内容を伺ったうえでお伝えしています。
-        </p>
-        <a
-          href="/contact"
-          className="inline-block px-8 py-3 text-white bg-blue-600 rounded-full font-medium hover:bg-blue-700 transition"
-        >
-          無料オンライン相談で見積もりの目安を確認する
-        </a>
-      </section>
+        {/* CTA */}
+        <div className="mt-16 text-center">
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+            まずはお気軽にご相談ください
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-slate-600">
+            どのプランが最適か、施設の状況をヒアリングした上でご提案します。
+          </p>
+          <div className="mt-10">
+            <a
+              href="/contact"
+              className="rounded-lg bg-slate-900 px-8 py-3 text-lg font-semibold text-white shadow-md transition-colors hover:bg-slate-800"
+            >
+              無料オンライン相談を予約する
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
