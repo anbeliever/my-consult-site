@@ -1,63 +1,12 @@
 // app/pricing/page.tsx
 
-const plans = [
-  {
-    name: "ライト運営代行",
-    price: "手数料12%〜",
-    description: "基本的な運営業務を代行。手間をかけずに安定稼働させたい方向け。",
-    features: [
-      "メッセージ対応",
-      "チェックイン案内",
-      "清掃手配・管理",
-      "収益レポート",
-    ],
-    popular: false,
-  },
-  {
-    name: "スタンダード",
-    price: "手数料12% + 成果報酬",
-    description: "売上・口コミを最大化するための、レベニュー管理まで含んだプラン。",
-    features: [
-      "ライトプランの全内容",
-      "レベニューマネジメント",
-      "口コミ改善施策",
-      "運営改善のご提案",
-    ],
-    popular: true,
-  },
-  {
-    name: "フルサポート",
-    price: "成果報酬型",
-    description: "初期費用0円。運営に関わる業務をすべて丸投げしたい方向け。",
-    features: [
-      "スタンダードプランの全内容",
-      "各種OTAアカウント管理",
-      "アメニティ等の物品管理・発注",
-      "緊急時・トラブルの現地対応",
-    ],
-    popular: false,
-  },
-];
-
-const comparisonFeatures = [
-  { name: "メッセージ対応", tiers: [true, true, true] },
-  { name: "清掃手配・管理", tiers: [true, true, true] },
-  { name: "収益レポート", tiers: [true, true, true] },
-  { name: "レベニューマネジメント", tiers: [false, true, true] },
-  { name: "口コミ改善施策", tiers: [false, true, true] },
-  { name: "運営改善のご提案", tiers: [false, true, true] },
-  { name: "OTAアカウント管理", tiers: [false, false, true] },
-  { name: "物品管理・発注", tiers: [false, false, true] },
-  { name: "緊急時の現地対応", tiers: [false, false, true] },
-];
-
 function CheckIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className="h-6 w-6 text-sky-500"
+      className="h-6 w-6 text-sky-500 mx-auto"
     >
       <path
         fillRule="evenodd"
@@ -68,13 +17,28 @@ function CheckIcon() {
   );
 }
 
+function CircleIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      className="h-5 w-5 text-slate-500 mx-auto"
+    >
+      <circle cx="12" cy="12" r="10" />
+    </svg>
+  );
+}
+
 function MinusIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className="h-6 w-6 text-slate-400"
+      className="h-6 w-6 text-slate-400 mx-auto"
     >
       <path
         fillRule="evenodd"
@@ -94,58 +58,47 @@ export default function PricingPage() {
             料金プラン
           </h1>
           <p className="mt-4 text-lg leading-8 text-slate-600">
-            施設の規模やオーナー様のご希望に合わせて、3つのプランからお選びいただけます。
+            施設の規模やオーナー様のご希望に合わせて、2つのプランからお選びいただけます。
           </p>
         </div>
 
-        {/* 3つのプランカード */}
-        <div className="isolate mx-auto mt-16 grid max-w-none grid-cols-1 gap-8 md:grid-cols-3">
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              className={`flex flex-col justify-between rounded-2xl p-8 shadow-sm ring-1 ${
-                plan.popular
-                  ? "ring-2 ring-sky-600"
-                  : "ring-slate-200"
-              }`}
-            >
-              <div>
-                <h3 className="text-lg font-semibold leading-8 text-slate-900">
-                  {plan.name}
-                </h3>
-                <p className="mt-4 text-sm leading-6 text-slate-600">
-                  {plan.description}
-                </p>
-                <p className="mt-6 flex items-baseline gap-x-1">
-                  <span className="text-2xl font-bold tracking-tight text-slate-900">
-                    {plan.price}
-                  </span>
-                </p>
-                <ul
-                  role="list"
-                  className="mt-8 space-y-3 text-sm leading-6 text-slate-600"
-                >
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex gap-x-3">
-                      <svg
-                        className="h-6 w-5 flex-none text-sky-600"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+        {/* 2つのプランカード */}
+        <div className="isolate mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 md:max-w-none md:grid-cols-2">
+          {/* 固定報酬型 */}
+          <div className="flex flex-col justify-between rounded-2xl p-8 shadow-sm ring-1 ring-slate-200">
+            <div>
+              <h3 className="text-lg font-semibold leading-8 text-slate-900">
+                固定報酬型（部分サポート）
+              </h3>
+              <p className="mt-4 text-sm leading-6 text-slate-600">
+                副業で民泊を運営しながら、「苦手なところだけ任せたい」オーナー向けのプランです。
+                メッセージ対応やチェックイン案内など、日々の運営負担を減らす部分サポートを行います。
+              </p>
+              <p className="mt-6 flex items-baseline gap-x-1">
+                <span className="text-2xl font-bold tracking-tight text-slate-900">
+                  月額 9,800円〜（＋1室あたり 9,800円）
+                </span>
+              </p>
             </div>
-          ))}
+          </div>
+
+          {/* 成果報酬型 */}
+          <div className="flex flex-col justify-between rounded-2xl p-8 shadow-sm ring-1 ring-slate-200">
+            <div>
+              <h3 className="text-lg font-semibold leading-8 text-slate-900">
+                成果報酬型（口コミ連動）
+              </h3>
+              <p className="mt-4 text-sm leading-6 text-slate-600">
+                売上とAirbnbの口コミ評価に応じて手数料が変動する、小規模物件向けの成果報酬プランです。
+                売上・口コミ・運営品質を二人三脚で改善していきたいオーナー向けです。
+              </p>
+              <p className="mt-6 flex items-baseline gap-x-1">
+                <span className="text-2xl font-bold tracking-tight text-slate-900">
+                  手数料 14〜18%
+                </span>
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* プラン比較表 */}
@@ -162,35 +115,80 @@ export default function PricingPage() {
                       scope="col"
                       className="py-3.5 pl-4 pr-3 text-sm font-semibold text-slate-900 sm:pl-6"
                     >
-                      機能
+                      項目
                     </th>
-                    {plans.map((plan) => (
-                      <th
-                        key={plan.name}
-                        scope="col"
-                        className="px-3 py-3.5 text-center text-sm font-semibold text-slate-900"
-                      >
-                        {plan.name}
-                      </th>
-                    ))}
+                    <th
+                      scope="col"
+                      className="px-3 py-3.5 text-center text-sm font-semibold text-slate-900"
+                    >
+                      固定報酬型（部分サポート）
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-3 py-3.5 text-center text-sm font-semibold text-slate-900"
+                    >
+                      成果報酬型（口コミ連動）
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-200">
-                  {comparisonFeatures.map((feature) => (
-                    <tr key={feature.name}>
-                      <td className="py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-6">
-                        {feature.name}
-                      </td>
-                      {feature.tiers.map((included, i) => (
-                        <td key={i} className="px-3 py-4 text-center">
-                          {included ? <CheckIcon /> : <MinusIcon />}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
+                  <tr>
+                    <td className="py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-6">料金体系</td>
+                    <td className="px-3 py-4 text-center text-sm text-slate-600">月額 9,800円〜 ＋1室 9,800円</td>
+                    <td className="px-3 py-4 text-center text-sm text-slate-600">手数料 14〜18%<br/>（Airbnb評価で変動）</td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-6">メッセージ対応</td>
+                    <td className="px-3 py-4 text-center"><CheckIcon /></td>
+                    <td className="px-3 py-4 text-center"><CheckIcon /></td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-6">チェックイン案内</td>
+                    <td className="px-3 py-4 text-center"><CheckIcon /></td>
+                    <td className="px-3 py-4 text-center"><CheckIcon /></td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-6">料金調整（レベニューマネジメント）</td>
+                    <td className="px-3 py-4 text-center text-sm text-slate-600">△</td>
+                    <td className="px-3 py-4 text-center"><CheckIcon /></td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-6">OTAアカウント管理</td>
+                    <td className="px-3 py-4 text-center text-sm text-slate-600">△（オプション）</td>
+                    <td className="px-3 py-4 text-center"><CheckIcon /></td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-6">口コミ分析・改善サポート</td>
+                    <td className="px-3 py-4 text-center text-sm text-slate-600">△（オプション）</td>
+                    <td className="px-3 py-4 text-center"><CheckIcon /></td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-6">清掃管理・清掃会社連携</td>
+                    <td className="px-3 py-4 text-center text-sm text-slate-600">△（オプション）</td>
+                    <td className="px-3 py-4 text-center"><CircleIcon /></td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-6">定期レポート</td>
+                    <td className="px-3 py-4 text-center"><MinusIcon /></td>
+                    <td className="px-3 py-4 text-center"><CheckIcon /></td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-6">緊急時対応</td>
+                    <td className="px-3 py-4 text-center text-sm text-slate-600">△（スポット／別途）</td>
+                    <td className="px-3 py-4 text-center text-sm text-slate-600">◯（一次対応）</td>
+                  </tr>
+                  <tr>
+                    <td className="py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-6">オーナーの関わり方</td>
+                    <td className="px-3 py-4 text-center text-sm text-slate-600">必要なところだけ外注したい方向け</td>
+                    <td className="px-3 py-4 text-center text-sm text-slate-600">運営を任せつつ売上も伸ばしたい方向け</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
+          </div>
+          <div className="mt-4 text-left text-sm text-slate-600">
+            <p className="font-semibold">注釈：</p>
+            <p>※緊急時対応について：成果報酬型では原則こちらで一次対応まで行います。</p>
           </div>
         </div>
 

@@ -1,5 +1,10 @@
 // app/page.tsx
+// app/page.tsx
+import FAQ from "./components/FAQ";
 import Hero from "./components/Hero";
+import CTA from "./components/CTA";  // ★ この1行を追加
+import { serviceData } from "./data/services";
+
 
 export default function HomePage() {
   return (
@@ -16,11 +21,12 @@ export default function HomePage() {
             小規模で民泊・ホテルを運営されているオーナー様から、日々こんなお声をいただきます。
           </p>
           <ul className="space-y-2 list-disc pl-5 text-slate-700">
-            <li>稼働や売上が月によってバラバラで、先の見通しが立てづらい</li>
-            <li>料金設定に自信がなく、つい値下げに頼ってしまう</li>
-            <li>OTAごとの在庫・プラン管理が煩雑で、ミスが怖い</li>
-            <li>清掃・チェックインなど現場オペレーションが属人化している</li>
-            <li>新しいツールやシステムに興味はあるが、何から手を付ければいいか分からない</li>
+            <li>小規模施設という理由で、運営代行に相談しても相手にされなかった</li>
+            <li>副業で始めた民泊が、部屋数や作業量が増えて一人では回らなくなってきた</li>
+            <li>清掃手配・問い合わせ対応・価格調整に追われ、本業やプライベートが圧迫されている</li>
+            <li>大手に任せていたら、いつの間にか口コミが悪化していていた</li>
+            <li>売上を上げたいが、Booking・Airbnbなど複数予約サイトの管理方法がわからない</li>
+            <li>完全丸投げは不安で、自分も運営に携わりたい</li>
           </ul>
           <p className="mt-4 text-sm text-slate-600">
             こうした課題は、「少しの設計」と「現場に合った仕組みづくり」で改善できます。
@@ -38,27 +44,32 @@ export default function HomePage() {
             主なサービス内容
           </h2>
           <p className="mb-8 text-center text-slate-700">
-            手間のかかる運営業務をまるごと代行し、オーナー様の負担をゼロにします。
+            手間のかかる運営業務を代行し、オーナー様の負担を最小限にします。
           </p>
           <div className="grid gap-6 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 text-center">
-              <h3 className="mb-2 text-lg font-semibold">日常運営代行</h3>
-              <p className="text-sm text-slate-700">
-                ゲスト対応、予約管理、清掃連携など、日々のあらゆる業務を代行します。
-              </p>
-            </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 text-center">
-              <h3 className="mb-2 text-lg font-semibold">レベニューマネジメント</h3>
-              <p className="text-sm text-slate-700">
-                最適な価格設定と販売戦略で、施設の収益を最大化します。
-              </p>
-            </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 text-center">
-              <h3 className="mb-2 text-lg font-semibold">口コミ改善サポート</h3>
-              <p className="text-sm text-slate-700">
-                ゲスト満足度を高め、高評価レビューを獲得するための施策を実行します。
-              </p>
-            </div>
+            {serviceData.map((service, index) => (
+              <div
+                key={service.name}
+                className="rounded-2xl border border-slate-200 bg-white p-6 text-left"
+              >
+                <service.icon
+                  className="mb-4 h-10 w-10 text-sky-600"
+                  aria-hidden="true"
+                />
+                <h3 className="mb-2 text-lg font-semibold">
+                  {index === 1 ? (
+                    <>
+                      売上最大化サポート
+                      <br />
+                      （レベニュー改善）
+                    </>
+                  ) : (
+                    service.name
+                  )}
+                </h3>
+                <p className="text-sm text-slate-700">{service.description}</p>
+              </div>
+            ))}
           </div>
           <div className="mt-8 text-center">
             <a
@@ -78,29 +89,31 @@ export default function HomePage() {
       >
         <div className="mx-auto max-w-5xl px-4 md:px-6">
           <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl">
-            Atsushi のコンサルが選ばれる理由
+            選ばれる理由
           </h2>
           <p className="mb-6 text-slate-700">
             民泊・ホテル向けのコンサルティングは増えていますが、ぼくのスタイルには次のような特徴があります。
           </p>
           <ol className="space-y-3 list-decimal pl-5 text-slate-700">
             <li>
-              <span className="font-semibold">現役の運営担当としての実務経験</span>
+              <span className="font-semibold">小規模民泊に特化した『伴走型』サポート</span>
               <br />
-              ホテル運営受託会社で、施設管理・レベニュー・OTA運用・オーナー対応まで幅広く担当。
-              「机上の空論」ではなく、現場で実際に試し、数字で確かめた方法をご提案します。
+              大手代行は、1〜10室規模では収支が合いづらく、改善にも手が回りにくいのが実情です。だからこそ、この規模に特化し、オーナー様と一緒に運営を組み立てる“二人三脚”スタイルを大切にしています。丸投げではなく、「自分も携わりたい」オーナー様に最適です。
             </li>
             <li>
-              <span className="font-semibold">数字と現場オペレーションの両面から見る視点</span>
+              <span className="font-semibold">現場運営と売上改善を熟知した実務ノウハウでサポート</span>
               <br />
-              料金や稼働率といった数字だけでなく、清掃・チェックイン・問い合わせ対応など、
-              日々のオペレーションも含めてトータルで改善していきます。
+              コロナ禍以前から宿泊運営に携わり、安定期も需要急落期も経験してきました。その長年の実務で培った“収益を落とさない運営ノウハウ”に加え、需要回復期の動きに合わせて価格を最適化するダイナミックプライシングで、売上改善を図ります。
             </li>
             <li>
-              <span className="font-semibold">小規模オーナー目線で「ムリのない一歩」からスタート</span>
+              <span className="font-semibold">売上だけでなく、口コミや運営品質もセットで整えるサポート</span>
               <br />
-              大掛かりなシステム導入よりも、まずは「今すぐできる見直し」から。
-              予算や手間に合わせて、現実的な選択肢を一緒に考えます。
+              小規模施設では、一つの低評価が大きく影響し、売上にも直結しやすいのが特徴です。価格だけを最適化しても、清掃品質やレスポンス対応が整っていなければ口コミは下がり、稼働も伸びません。売上・対応品質・清掃動線など運営全体を一緒に整えることで、安定した高評価とリピートにつながる運営をつくります。
+               <li>
+               <span className="font-semibold">業界最安水準の成果報酬型と、部分委託に最適な固定報酬型をご用意</span>
+              <br />
+             成果に応じて費用を支払いたい方には成果報酬型、"任せたい部分だけ"依頼したい方には固定報酬型をご用意しています。運営スタイルに合わせて必要な範囲だけ選べるため、小規模民泊でも無理なく導入できます。
+              </li>
             </li>
           </ol>
         </div>
@@ -195,28 +208,23 @@ export default function HomePage() {
             料金プラン
           </h2>
           <p className="mb-8 text-center text-slate-700">
-            施設の規模やご希望に合わせて、3つのプランから柔軟にお選びいただけます。
+            施設の規模やご希望に合わせて、2つのプランから柔軟にお選びいただけます。
           </p>
-          <div className="grid gap-6 md:grid-cols-3 text-center">
+          <div className="grid gap-6 md:grid-cols-2 text-center">
             <div className="rounded-2xl border border-slate-200 bg-white p-6">
-              <h3 className="mb-2 text-lg font-semibold">ライト運営代行</h3>
-              <p className="text-xl font-bold">手数料12%〜</p>
+              <h3 className="mb-2 text-lg font-semibold">固定報酬型（部分サポート）</h3>
+              <p className="text-xl font-bold">月額 9,800円〜（＋1室あたり 9,800円）</p>
               <p className="mt-2 text-sm text-slate-700">
-                基本的な運営をまるっとお任せ。
-              </p>
-            </div>
-            <div className="rounded-2xl border-2 border-sky-500 bg-white p-6">
-              <h3 className="mb-2 text-lg font-semibold">スタンダード</h3>
-              <p className="text-xl font-bold">手数料12%〜 + 成果報酬</p>
-              <p className="mt-2 text-sm text-slate-700">
-                収益改善までコミットする一番人気のプラン。
+                副業で民泊を運営しながら、「苦手なところだけ任せたい」オーナー向けのプランです。
+                メッセージ対応やチェックイン案内など、日々の運営負担を減らす部分サポートを行います。
               </p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-6">
-              <h3 className="mb-2 text-lg font-semibold">フルサポート</h3>
-              <p className="text-xl font-bold">成果報酬型</p>
+              <h3 className="mb-2 text-lg font-semibold">成果報酬型（口コミ連動）</h3>
+              <p className="text-xl font-bold">手数料 14〜18%</p>
               <p className="mt-2 text-sm text-slate-700">
-                初期費用ゼロで運営をすべて丸投げ。
+                売上とAirbnbの口コミ評価に応じて手数料が変動する、小規模物件向けの成果報酬プランです。
+                売上・口コミ・運営品質を二人三脚で改善していきたいオーナー向けです。
               </p>
             </div>
           </div>
@@ -230,45 +238,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* よくある質問 */}
-      <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-5xl px-4 md:px-6">
-          <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl">
-            よくある質問
-          </h2>
-          <div className="space-y-4 text-sm text-slate-700">
-            <div className="rounded-2xl border border-slate-200 bg-white p-4">
-              <p className="mb-1 font-semibold">
-                Q. まだ売上も少なく、小さな物件なのですが相談しても大丈夫ですか？
-              </p>
-              <p>
-                A. もちろん大丈夫です。むしろ小規模なうちから「運営の型」を作っておくことで、
-                後々の負担やムダを減らすことができます。
-              </p>
-            </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-4">
-              <p className="mb-1 font-semibold">
-                Q. まずは一度話を聞いてみるだけでもいいですか？
-              </p>
-              <p>
-                A.
-                はい。初回のオンライン相談では、現状の整理と「今すぐできる一歩」のご提案までを行い、
-                その場でご契約を迫るようなことはしません。
-              </p>
-            </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-4">
-              <p className="mb-1 font-semibold">
-                Q. Beds24 や自動価格調整ツールについても相談できますか？
-              </p>
-              <p>
-                A.
-                相談可能です。完全なシステム開発ではなく、「現状のツールでできること」から一緒に整理していきます。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+     <CTA />    {/* ★ ここで CTA セクション表示 */}
+<FAQ />    {/* よくある質問 */}
 
       {/* お問い合わせ */}
       <section

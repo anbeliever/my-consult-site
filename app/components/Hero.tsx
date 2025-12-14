@@ -14,7 +14,7 @@ export default function Hero() {
             viewport={{ once: true }}
             className="text-3xl font-bold tracking-tight md:text-4xl"
           >
-            1〜10室の小規模オーナー専門の運営代行サービス
+            小規模民泊オーナーのための“伴走型”運営代行サービス
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -23,22 +23,26 @@ export default function Hero() {
             viewport={{ once: true }}
             className="mt-3 max-w-2xl text-base text-slate-700 md:text-lg"
           >
-            副業オーナーも安心。本業を続けながら“手間ゼロ”で売上・口コミ改善を実現します。
+           副業では手に負えなくなってきた小規模民泊や、大手に断られがちな1〜10室規模のオーナー様へ。
+          <br />私たちが売上・口コミ・運営品質を“二人三脚”で支えます。
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
-            className="mt-6 flex flex-col items-center gap-3 sm:flex-row md:items-start"
+            className="mt-6 flex flex-wrap items-center gap-3 sm:flex-row md:items-start"
           >
-            <div className="rounded-full bg-sky-100 px-3 py-1 text-sm font-semibold text-sky-800">
-              運営代行手数料12%〜
+            <div className="rounded-full bg-sky-100 px-4 py-2 text-sm font-semibold text-sky-800">
+              運営代行手数料：業界最安水準
             </div>
-            <div className="rounded-full bg-sky-100 px-3 py-1 text-sm font-semibold text-sky-800">
-              口コミ改善が得意
+            <div className="rounded-full bg-sky-100 px-4 py-2 text-sm font-semibold text-sky-800">
+              成果報酬型（初期費用ゼロ）
             </div>
-            <div className="rounded-full bg-sky-100 px-3 py-1 text-sm font-semibold text-sky-800">
+            <div className="rounded-full bg-sky-100 px-4 py-2 text-sm font-semibold text-sky-800">
+              口コミ改善にも強い運営設計
+            </div>
+            <div className="rounded-full bg-sky-100 px-4 py-2 text-sm font-semibold text-sky-800">
               小規模運営者に特化
             </div>
           </motion.div>

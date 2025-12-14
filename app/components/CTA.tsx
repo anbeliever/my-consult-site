@@ -1,22 +1,42 @@
+// app/components/CTA.tsx
+
 export default function CTA() {
   return (
-    <section
-      id="contact"
-      className="py-24 md:py-28 scroll-mt-24 md:scroll-mt-28 bg-gradient-to-b from-white to-brand-50 text-center"
-    >
-      <div className="mx-auto max-w-3xl px-6 md:px-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
-          収益を底上げする打ち手、今すぐ始めませんか？
+    <section id="cta" className="py-24 bg-white">
+      <div className="max-w-3xl mx-auto px-4 text-center">
+        {/* 見出し */}
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
+          まずは 30 分の無料オンライン相談から
         </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-sm md:text-base text-gray-600 leading-relaxed">
-          施設特性と需要動線に合わせた価格・在庫・販路の最適化プランをご提案。最短翌日から運用改善を実現します。
+
+        {/* リード文 */}
+        <p className="mt-6 text-base md:text-lg leading-relaxed text-gray-700">
+          「まだ売上も少ないし、自分なんかが相談していいのかな…」
+          そんな小規模・副業オーナー様のための相談窓口です。
         </p>
+
+        <p className="mt-4 text-base md:text-lg leading-relaxed text-gray-700">
+          現在の運営状況やお悩み、今後の目標をヒアリングしたうえで、
+          固定報酬型・成果報酬型どちらが合うか、具体的な運営イメージを一緒にお伝えします。
+        </p>
+
+        <p className="mt-4 text-base md:text-lg leading-relaxed text-gray-700">
+          無理な勧誘や、その場でのご契約を迫ることは一切ありません。
+          まずは現状整理と「今できる一歩」の発見からご一緒しましょう。
+        </p>
+
+        {/* ボタン */}
         <a
-          href="#contact"
-          className="mt-8 inline-block rounded-full bg-brand-600 px-8 py-3 font-semibold text-white shadow-glow hover:bg-brand-700 transition"
+          href="/contact"
+          className="mt-10 inline-block rounded-full bg-blue-600 px-8 py-3 text-base font-semibold text-white shadow-lg hover:bg-blue-700 transition"
         >
-          無料ヒアリングを予約
+          無料オンライン相談を予約する
         </a>
+
+        {/* 注釈 */}
+        <p className="mt-6 text-sm text-gray-500">
+          ※福岡市内の1〜10室規模の物件オーナー様を主な対象としています。
+        </p>
       </div>
     </section>
   );
