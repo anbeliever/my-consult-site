@@ -14,8 +14,17 @@ export default function Hero() {
             viewport={{ once: true }}
             className="text-3xl font-bold tracking-tight md:text-4xl"
           >
-            小規模民泊オーナーのための“伴走型”運営代行サービス
+            宿番（YADOBAN）
           </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="mt-3 max-w-2xl text-base text-slate-700 md:text-lg"
+          >
+            小規模宿の運営を、日常から支える。
+          </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

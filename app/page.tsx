@@ -92,7 +92,7 @@ export default function HomePage() {
             選ばれる理由
           </h2>
           <p className="mb-6 text-slate-700">
-            民泊・ホテル向けのコンサルティングは増えていますが、ぼくのスタイルには次のような特徴があります。
+            民泊・ホテル向けのコンサルティングは増えていますが、宿番のスタイルには次のような特徴があります。
           </p>
           <ol className="space-y-3 list-decimal pl-5 text-slate-700">
             <li>
@@ -165,33 +165,33 @@ export default function HomePage() {
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-5xl px-4 md:px-6">
           <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl">
-            プロフィール
+            宿番について
           </h2>
           <div className="grid gap-6 md:grid-cols-[2fr,3fr] items-start">
             <div className="rounded-2xl border border-slate-200 bg-white p-4">
               <p className="text-sm font-semibold text-slate-900 mb-1">
-                仲野 敦詞（Atsushi Nakano）
+                宿番（YADOBAN）
               </p>
               <p className="mb-3 text-xs text-slate-500">
-                民泊・小規模ホテル運営コンサルタント / 宿泊運営受託会社勤務
+                宿番（YADOBAN）は、小規模民泊・小規模ホテル向けの運営支援サービスです。
               </p>
               <p className="mb-2 text-sm text-slate-700">
-                不動産会社での勤務を経て、ホテル・民泊の運営受託会社へ転職。
-                施設管理、OTA運用、レベニューマネジメント、オーナー窓口など、
-                宿泊運営の現場を幅広く担当してきました。
+                完全な丸投げ代行ではなく、現場の実務に寄り添いながら、
+                運営代行と改善支援を組み合わせた形でサポートします。
               </p>
               <p className="mb-2 text-sm text-slate-700">
-                自身でも競売で取得した物件のリフォーム・賃貸運用に取り組みつつ、
-                小規模オーナー目線での「無理なく続けられる運営改善」をテーマに活動しています。
+                  ITツールが未導入、または単一OTAのみで運営している宿泊施設でも、
+                  ゲスト対応やOTA運用の整理、PMS・サイトコントローラー導入支援を通じて、
+                  無理のない形で運営の効率化を進めていきます。
               </p>
             </div>
             <div className="rounded-2xl border border-dashed border-slate-300 p-4 text-sm text-slate-600">
               <p className="mb-2 font-semibold text-slate-800">これまで関わってきた主な業務</p>
               <ul className="mb-4 space-y-1 list-disc pl-5">
                 <li>都市部ビジネスホテルのOTA運用・料金設計</li>
-                <li>地方エリアの小規模宿・民泊の新規開業支援</li>
+                <li>小規模宿・民泊の新規開業支援</li>
                 <li>清掃・チェックインオペレーションの整理とマニュアル作成</li>
-                <li>Beds24 などのサイトコントローラー導入・設定支援</li>
+                <li>PMS・サイトコントローラー導入・設定支援</li>
               </ul>
               <p className="text-xs text-slate-500">
                 ※詳細な経歴・実績は今後コンテンツとして整理していく予定です。
@@ -221,7 +221,7 @@ export default function HomePage() {
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-6">
               <h3 className="mb-2 text-lg font-semibold">成果報酬型（口コミ連動）</h3>
-              <p className="text-xl font-bold">手数料 14〜18%</p>
+              <p className="text-xl font-bold">手数料 14〜20%</p>
               <p className="mt-2 text-sm text-slate-700">
                 売上とAirbnbの口コミ評価に応じて手数料が変動する、小規模物件向けの成果報酬プランです。
                 売上・口コミ・運営品質を二人三脚で改善していきたいオーナー向けです。
@@ -256,16 +256,6 @@ export default function HomePage() {
             今できる一歩と、もしご一緒できる場合の進め方をお伝えします。
           </p>
           <div className="rounded-2xl border border-slate-700 bg-slate-900/40 p-4 text-sm space-y-2">
-            <p>ご相談は以下のメールアドレスからお気軽にご連絡ください。</p>
-            <p className="text-base font-semibold">
-              メール：{" "}
-              <a
-                href="mailto:enbeliever59@gmail.com"
-                className="text-sky-300 underline-offset-2 hover:underline"
-              >
-                enbeliever59@gmail.com
-              </a>
-            </p>
             <p className="text-xs text-slate-300">
               ・物件の場所 / 客室数 / 現在の運営状況を分かる範囲でお書きいただけるとスムーズです。
               <br />

@@ -72,7 +72,7 @@ export default function PricingPage() {
               </h3>
               <p className="mt-4 text-sm leading-6 text-slate-600">
                 副業で民泊を運営しながら、「苦手なところだけ任せたい」オーナー向けのプランです。
-                メッセージ対応やチェックイン案内など、日々の運営負担を減らす部分サポートを行います。
+                メッセージ対応やチェックイン案内など、日々の運営負担を減らす部分サポートを行います。全国エリア対応（オンライン対応）。
               </p>
               <p className="mt-6 flex items-baseline gap-x-1">
                 <span className="text-2xl font-bold tracking-tight text-slate-900">
@@ -90,11 +90,11 @@ export default function PricingPage() {
               </h3>
               <p className="mt-4 text-sm leading-6 text-slate-600">
                 売上とAirbnbの口コミ評価に応じて手数料が変動する、小規模物件向けの成果報酬プランです。
-                売上・口コミ・運営品質を二人三脚で改善していきたいオーナー向けです。
+                売上・口コミ・運営品質を二人三脚で改善していきたいオーナー向けです。エリア限定対応。
               </p>
               <p className="mt-6 flex items-baseline gap-x-1">
                 <span className="text-2xl font-bold tracking-tight text-slate-900">
-                  手数料 14〜18%
+                  手数料 14〜20%
                 </span>
               </p>
             </div>
@@ -134,8 +134,8 @@ export default function PricingPage() {
                 <tbody className="divide-y divide-slate-200">
                   <tr>
                     <td className="py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-6">料金体系</td>
-                    <td className="px-3 py-4 text-center text-sm text-slate-600">月額 9,800円〜 ＋1室 9,800円</td>
-                    <td className="px-3 py-4 text-center text-sm text-slate-600">手数料 14〜18%<br/>（Airbnb評価で変動）</td>
+                    <td className="px-3 py-4 text-center text-sm text-slate-600">月額 9,800円〜 ＋1室（1OTAあたり）9,800円</td>
+                    <td className="px-3 py-4 text-center text-sm text-slate-600">手数料 14〜20%<br/>（Airbnb評価で変動）</td>
                   </tr>
                   <tr>
                     <td className="py-4 pl-4 pr-3 text-sm font-medium text-slate-900 sm:pl-6">メッセージ対応</td>
@@ -189,6 +189,7 @@ export default function PricingPage() {
           <div className="mt-4 text-left text-sm text-slate-600">
             <p className="font-semibold">注釈：</p>
             <p>※緊急時対応について：成果報酬型では原則こちらで一次対応まで行います。</p>
+            <p>※緊急時対応・現地でのスポット対応は、対応可能エリアに限り提供しています。</p>
           </div>
         </div>
 

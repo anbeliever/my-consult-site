@@ -4,7 +4,7 @@ export default function StrengthPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-16 text-slate-800">
       <h1 className="text-3xl md:text-4xl font-bold mb-6">
-        Atsushi の強み
+        宿番の強み
       </h1>
 
       <p className="text-slate-600 leading-relaxed mb-10">
@@ -26,8 +26,8 @@ export default function StrengthPage() {
         <div>
           <h2 className="text-xl font-semibold mb-3">② レベニュー・OTA運用が得意</h2>
           <p className="text-slate-700 leading-relaxed">
-            料金設定、在庫の配分、プラン整理など、利益を最大化するための仕組みづくりをサポート。
-            Beds24 の設定見直しや動的価格調整のアドバイスも可能です。
+            料金設定、在庫配分、プラン整理など、利益を最大化するための運用設計をサポート。
+Airbnb単体運用から、複数OTAを同時に回せる仕組みづくりまで、現状に合わせて伴走します。
           </p>
         </div>
 

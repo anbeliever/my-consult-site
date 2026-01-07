@@ -4,9 +4,16 @@ export default function Header() {
     <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/80 backdrop-blur">
       <div className="max-w-5xl mx-auto flex items-center justify-between px-4 md:px-6 py-3">
         {/* ロゴっぽいテキスト */}
-        <a href="/" className="text-sm md:text-base font-semibold tracking-tight">
-          民泊・ホテル運営コンサル
-        </a>
+        <a href="/" className="leading-tight hover:opacity-90 transition">
+        <div className="inline-block border-b-4 border-sky-600 pb-1">
+        <span className="text-xl md:text-2xl font-extrabold tracking-tight text-sky-600">
+        宿番
+        </span>
+      </div>
+  <div className="text-[10px] tracking-widest text-slate-500 mt-1">
+    YADOBAN
+  </div>
+</a>
 
         {/* ナビゲーション */}
         <nav className="hidden md:flex items-center gap-8 text-sm text-slate-700">
