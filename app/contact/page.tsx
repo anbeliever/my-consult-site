@@ -13,7 +13,11 @@ export default function ContactPage() {
 
       <section className="mt-12">
         <h2 className="text-2xl font-bold mb-6">お問い合わせフォーム</h2>
-        <form className="space-y-6">
+        <form
+          action="https://formspree.io/f/mnjqoqkv"
+          method="POST"
+          className="space-y-6"
+         >
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-slate-700">
               お名前
